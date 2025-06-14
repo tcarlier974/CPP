@@ -60,9 +60,6 @@ void	PhoneBook::search(void){
 	std::cout << "Nickname : " << this->list[index].get_nickname() << std::endl;
 	std::cout << "Phone number : " << this->list[index].get_phone() << std::endl;
 	std::cout << "Darkest secret : " << this->list[index].get_secret() << std::endl;
-	std::cout << std::endl << "Press a key to continue..." << std::endl;
-	getchar();
-	getchar();
 }
 
 void	PhoneBook::add(void){
