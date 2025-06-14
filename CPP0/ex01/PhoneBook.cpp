@@ -24,12 +24,12 @@ void	PhoneBook::search(void){
 		std::cout << "0 contact in the phonebook, please add 1 before" << std::endl;
 		return;
 	}
-	std::cout << std::setw(5) << "Index" << "|";
-	std::cout << std::setw(10) << "Firstname" << "|";
-	std::cout << std::setw(10) << "Lastname" << "|";
-	std::cout << std::setw(10) << "Nickname" << std::endl;
+	std::cout << "Index" << "|";
+	std::cout << "Firstname" << "|";
+	std::cout << " Lastname" << "|";
+	std::cout << "Nickname" << std::endl;
 	while (i < nb_contacts) {
-		std::cout << std::setw(5) << i << "|";
+		std::cout << i << "|";
 		name = this->list[i].get_first();
 		last = this->list[i].get_last();
 		nick = this->list[i].get_nickname();
@@ -41,19 +41,19 @@ void	PhoneBook::search(void){
 			last = last.substr(0, 9) + ".";
 		if (nick.length() > 9)
 			nick = nick.substr(0, 9) + ".";
-		std::cout << std::setw(10) << name << "|";
-		std::cout << std::setw(10) << last << "|";
-		std::cout << std::setw(10) << nick << std::endl;
+		std::cout << name << "|";
+		std::cout << last << "|";
+		std::cout << nick << std::endl;
 		i++;
 	}
 	std::cout << std::endl << "Type a contact's index to obtain personal informations : ";
 	std::cin >> ret;
 	index = atoi(ret.c_str());
 	if ((index == 0 && ret[0] != '0') || (index > 7 || index < 0)) {
-		std::cout << "Please enter a valid digit ! Abort..." << std::endl; sleep(1); return;
+		std::cout << "Please enter a valid digit ! Abort..." << std::endl; return;
 	}
 	if (index >= this->nb_contacts) {
-		std::cout << "No contact found ! Abort..." << std::endl; sleep(1); return;
+		std::cout << "No contact found ! Abort..." << std::endl; return;
 	}
 	std::cout << "Name : " << this->list[index].get_first() << std::endl;
 	std::cout << "Lastname : " << this->list[index].get_last() << std::endl;

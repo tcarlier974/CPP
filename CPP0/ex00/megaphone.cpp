@@ -4,7 +4,10 @@
 void	megaphone(std::string mystring)
 {
 	std::string result = mystring;
-	std::transform(result.begin(), result.end(), result.begin(), ::toupper);
+	for(int i = 0; i < (int)result.length(); i++){
+		if (result[i] >= 'a' && result[i] <= 'z')
+			result[i] -= 32;
+	}
 	std::cout << result;
 }
 
