@@ -24,10 +24,10 @@ class Fixed{
 		Fixed operator>=(Fixed fixed);
 		Fixed operator!=(Fixed fixed);
 		Fixed operator<=(Fixed fixed);
-		Fixed operator++();
-		Fixed operator++();
-		Fixed operator--();
-		Fixed operator--();
+		Fixed &operator++();
+		Fixed operator++(int i);
+		Fixed &operator--();
+		Fixed operator--(int i);
 
 		
 		~Fixed();

@@ -98,22 +98,24 @@ Fixed Fixed::operator*(Fixed src){
 	return (this->toFloat() * src.toFloat());
 }
 
-Fixed Fixed::operator++(){
-	return (this->fixed++);
+Fixed &Fixed::operator++(){
+	++this->fixed;
+	return *this;
 }
 
-Fixed Fixed::operator++(){
-	Fixed tmp;
+Fixed Fixed::operator++(int ){
+	Fixed tmp = *this;
 	this->fixed++;
 	return (tmp);
 }
 
-Fixed Fixed::operator--(){
-	return (this->fixed--);
+Fixed &Fixed::operator--(){
+	--this->fixed;
+	return (*this);
 }
 
-Fixed Fixed::operator--(){
-	Fixed tmp;
+Fixed Fixed::operator--(int ){
+	Fixed tmp = *this;
 	this->fixed--;
 	return (tmp);
 }
