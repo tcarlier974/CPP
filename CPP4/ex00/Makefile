@@ -1,8 +1,10 @@
-SRC = main.cpp \
-		Fixed.cpp \
-		Point.cpp \
-		bsp.cpp
-NAME = fixed
+SRC = src/main.cpp \
+		src/Animal.cpp \
+		src/Cat.cpp \
+		src/Dog.cpp \
+		src/WrongAnimal.cpp \
+		src/WrongCat.cpp
+NAME = Animal
 CC = g++
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
 OBJ = $(SRC:.cpp=.o)
