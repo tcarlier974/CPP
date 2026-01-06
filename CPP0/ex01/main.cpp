@@ -16,6 +16,8 @@ int main(void)
 		else if (!commande.compare("SEARCH")){
 			phone_book.search();
 		}
+		if (!std::cin || std::cin.eof())
+			break;
 	}
 	return (0);
 }
