@@ -24,12 +24,12 @@ void	PhoneBook::search(void){
 		std::cout << "0 contact in the phonebook, please add 1 before" << std::endl;
 		return;
 	}
-	std::cout << "Index" << "|";
-	std::cout << "Firstname" << "|";
-	std::cout << " Lastname" << "|";
-	std::cout << "Nickname" << std::endl;
+	std::cout << std::setw(10) << "Index" << "|";
+	std::cout << std::setw(10) << "Firstname" << "|";
+	std::cout << std::setw(10) << " Lastname" << "|";
+	std::cout << std::setw(10) << "Nickname" << std::endl;
 	while (i < nb_contacts) {
-		std::cout << i << "|";
+		std::cout << std::setw(10) << i << "|";
 		name = this->list[i].get_first();
 		last = this->list[i].get_last();
 		nick = this->list[i].get_nickname();
@@ -41,9 +41,9 @@ void	PhoneBook::search(void){
 			last = last.substr(0, 9) + ".";
 		if (nick.length() > 9)
 			nick = nick.substr(0, 9) + ".";
-		std::cout << name << "|";
-		std::cout << last << "|";
-		std::cout << nick << std::endl;
+		std::cout << std::setw(10) << name << "|";
+		std::cout << std::setw(10) << last << "|";
+		std::cout << std::setw(10) << nick << std::endl;
 		i++;
 	}
 	std::cout << std::endl << "Type a contact's index to obtain personal informations : ";
@@ -55,11 +55,11 @@ void	PhoneBook::search(void){
 	if (index >= this->nb_contacts) {
 		std::cout << "No contact found ! Abort..." << std::endl; return;
 	}
-	std::cout << "Name : " << this->list[index].get_first() << std::endl;
+	std::cout << std::endl << "Name : " << this->list[index].get_first() << std::endl;
 	std::cout << "Lastname : " << this->list[index].get_last() << std::endl;
 	std::cout << "Nickname : " << this->list[index].get_nickname() << std::endl;
 	std::cout << "Phone number : " << this->list[index].get_phone() << std::endl;
-	std::cout << "Darkest secret : " << this->list[index].get_secret() << std::endl;
+	std::cout << "Darkest secret : " << this->list[index].get_secret() << std::endl << std::endl;
 }
 
 void	PhoneBook::add(void){
