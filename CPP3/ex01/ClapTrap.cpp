@@ -16,6 +16,23 @@ ClapTrap::ClapTrap(str name){
 	std::cout << "The new ClapTrap " << name << " is build" << std::endl;
 }
 
+ClapTrap::ClapTrap(const ClapTrap& original){
+	std::cout << "ClapTrap Copy Constructor called" << std::endl;
+	*this = original;
+}
+
+ClapTrap &ClapTrap::operator=(const ClapTrap& src){
+	std::cout << "ClapTrap Assignation operator called" << std::endl;
+	if (&src != this)
+	{
+			this->name = src.name;
+			this->hit = src.hit;
+			this->energy = src.energy;
+			this->attackDamage = src.attackDamage;
+	}
+	return *this;
+}
+
 ClapTrap::~ClapTrap(){
 	std::cout << "ClapTrap " << this->name << " is destroyed" << std::endl;
 }

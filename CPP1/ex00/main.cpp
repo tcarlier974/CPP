@@ -3,8 +3,8 @@
 int	main() {
 	Zombie* z = NULL;
 
-	z = z->newZombie("Ivan");
+	z = newZombie("Ivan");
 	z->announce();
-	z->randomChump("SAM");
+	randomChump("SAM");
 	delete z;
 }

@@ -2,7 +2,7 @@
 
 ScavTrap::ScavTrap(): ClapTrap()
 {
-	this->attackDamage = 10;
+	this->attackDamage = 20;
 	this->energy = 50;
 	this->guard = false;
 	this->hit = 100;
@@ -15,9 +15,22 @@ ScavTrap::ScavTrap(const ScavTrap &copy): ClapTrap(copy)
 	std::cout << "ScavTrap Copy Constructor called" << std::endl;
 }
 
+ScavTrap& ScavTrap::operator=(const ScavTrap& src){
+	std::cout << "ScavTrap Assignation operator called" << std::endl;
+	if (&src != this)
+	{
+			this->name = src.name;
+			this->hit = src.hit;
+			this->energy = src.energy;
+			this->attackDamage = src.attackDamage;
+			this->guard = src.guard;
+	}
+	return *this;
+}
+
 ScavTrap::ScavTrap(str name): ClapTrap(name)
 {
-	this->attackDamage = 10;
+	this->attackDamage = 20;
 	this->energy = 50;
 	this->guard = false;
 	this->hit = 100;

@@ -21,16 +21,21 @@ int main(int ac, char** av) {
 	str filename = av[1];
 	str str1 = av[2];
 	str str2 = av[3];
-	std::ifstream ifs;
+	if (str1.empty())
+		return (std::cout << "Error: s1 cannot be empty" << std::endl, 1);
+	std::ifstream ifs(av[1]);
+	if (!ifs.is_open())
+		return (std::cout << "Error: cannot open file" << std::endl, 1);
 	std::ofstream ofs(filename + ".replace");
-	ifs.open(av[1]);
-	if (ifs.is_open() == true){
-		while (std::getline(ifs, current)){
-			current = replace(current, str1, str2);
-			ofs << current;
-			if (ifs.peek() == '\n')
-				ofs << std::endl;
-		}
+	if (!ofs.is_open())
+		return (ifs.close(), std::cout << "Error: cannot create output file" << std::endl, 1);
+	bool firstLine = true;
+	while (std::getline(ifs, current)){
+		if (!firstLine)
+			ofs << "\n";
+		current = replace(current, str1, str2);
+		ofs << current;
+		firstLine = false;
 	}
 	ifs.close();
 	ofs.close();

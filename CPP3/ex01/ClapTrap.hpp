@@ -14,6 +14,8 @@ class ClapTrap {
 	public :
 		ClapTrap();
 		ClapTrap(str name);
+		ClapTrap(const ClapTrap& original);
+		ClapTrap &operator=(const ClapTrap& src);
 		~ClapTrap();
 
 		void attack(const str& target);

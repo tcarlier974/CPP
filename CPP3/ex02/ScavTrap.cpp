@@ -17,7 +17,7 @@ ScavTrap::ScavTrap(const ScavTrap &copy): ClapTrap(copy)
 
 ScavTrap::ScavTrap(str name): ClapTrap(name)
 {
-	this->attackDamage = 10;
+	this->attackDamage = 20;
 	this->energy = 50;
 	this->guard = false;
 	this->hit = 100;

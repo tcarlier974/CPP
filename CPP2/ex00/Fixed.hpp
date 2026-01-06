@@ -8,11 +8,11 @@ typedef std::string str;
 class Fixed{
 	public :
 		Fixed();
-		Fixed(Fixed& original);
-		Fixed &operator=(Fixed& src);
+		Fixed(const Fixed& original);
+		Fixed &operator=(const Fixed& src);
 
 		~Fixed();
-		int getRawBits( void );
+		int getRawBits( void ) const ;
 		void setRawBits( int const value );
 	private:
 		int fixed;

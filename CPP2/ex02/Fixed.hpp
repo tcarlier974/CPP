@@ -14,16 +14,16 @@ class Fixed{
 		Fixed(float const f);
 		
 		Fixed &operator=(const Fixed& src);
-		Fixed operator>(Fixed fixed);
-		Fixed operator<(Fixed fixed);
+		bool operator>(Fixed fixed);
+		bool operator<(Fixed fixed);
 		Fixed operator+(Fixed fixed);
 		Fixed operator-(Fixed fixed);
 		Fixed operator/(Fixed fixed);
 		Fixed operator*(Fixed fixed);
-		Fixed operator==(Fixed fixed);
-		Fixed operator>=(Fixed fixed);
-		Fixed operator!=(Fixed fixed);
-		Fixed operator<=(Fixed fixed);
+		bool operator==(Fixed fixed);
+		bool operator>=(Fixed fixed);
+		bool operator!=(Fixed fixed);
+		bool operator<=(Fixed fixed);
 		Fixed &operator++();
 		Fixed operator++(int i);
 		Fixed &operator--();

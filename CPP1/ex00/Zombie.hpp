@@ -17,9 +17,10 @@ class Zombie {
 	public :
 		Zombie( str name );
 		~Zombie(void);
-		Zombie* newZombie(str name);
 		void	announce();
-		void randomChump(str name);
 };
+
+Zombie* newZombie(str name);
+void randomChump(str name);
 
 #endif
