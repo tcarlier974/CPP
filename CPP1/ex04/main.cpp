@@ -26,7 +26,7 @@ int main(int ac, char** av) {
 	std::ifstream ifs(av[1]);
 	if (!ifs.is_open())
 		return (std::cout << "Error: cannot open file" << std::endl, 1);
-	std::ofstream ofs(filename + ".replace");
+	std::ofstream ofs((filename + ".replace").c_str());
 	if (!ofs.is_open())
 		return (ifs.close(), std::cout << "Error: cannot create output file" << std::endl, 1);
 	bool firstLine = true;

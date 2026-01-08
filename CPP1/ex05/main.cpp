@@ -14,5 +14,5 @@ int main()
 	std::cout << std::endl;
 	harl.complain("OTHER");
 	std::cout << std::endl;
-	return (EXIT_SUCCESS);
+	return (0);
 }
