@@ -5,7 +5,7 @@ SRC = src/main.cpp \
 		src/WrongAnimal.cpp \
 		src/WrongCat.cpp
 NAME = Animal
-CC = g++
+CC = c++
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
 OBJ = $(SRC:.cpp=.o)
 

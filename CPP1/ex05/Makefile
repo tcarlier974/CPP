@@ -1,7 +1,7 @@
 SRC = main.cpp \
 		Harl.cpp
 NAME = harl
-CC = g++
+CC = c++
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
 OBJ = $(SRC:.cpp=.o)
 

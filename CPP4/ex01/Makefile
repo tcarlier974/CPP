@@ -6,7 +6,7 @@ SRC = src/main.cpp \
 		src/WrongCat.cpp \
 		src/Brain.cpp
 NAME = Ideas
-CC = g++
+CC = c++
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
 OBJ = $(SRC:.cpp=.o)
 
