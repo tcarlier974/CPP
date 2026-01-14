@@ -45,5 +45,8 @@ void ScavTrap::guardGate(){
 	if (this->guard)
 		this->guard = false;
 	else
+	{
+		std::cout << "ScavTrap " << this->name << " is now in Gate keeper mode" << std::endl;
 		this->guard = true;
+	}
 }
