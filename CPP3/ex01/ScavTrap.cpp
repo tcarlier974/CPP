@@ -6,7 +6,7 @@ ScavTrap::ScavTrap(): ClapTrap()
 	this->energy = 50;
 	this->guard = false;
 	this->hit = 100;
-	std::cout << "Default constructor ScavTrap called\n";
+	std::cout << "Default constructor ScavTrap called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &copy): ClapTrap(copy)
@@ -34,7 +34,7 @@ ScavTrap::ScavTrap(str name): ClapTrap(name)
 	this->energy = 50;
 	this->guard = false;
 	this->hit = 100;
-	std::cout << this->name << " constructor ScavTrap called\n";
+	std::cout << this->name << " constructor ScavTrap called" << std::endl;
 }
 
 ScavTrap::~ScavTrap(){
@@ -58,5 +58,8 @@ void ScavTrap::guardGate(){
 	if (this->guard)
 		this->guard = false;
 	else
+	{
+		std::cout << "ScavTrap" << this->name << "is now in Gate keeper mode" << std::endl;
 		this->guard = true;
+	}
 }
