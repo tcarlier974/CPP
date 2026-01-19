@@ -1,5 +1,5 @@
 SRC = src/main.cpp \
-		src/Animal.cpp \
+		src/AAnimal.cpp \
 		src/Cat.cpp \
 		src/Dog.cpp \
 		src/WrongAnimal.cpp \

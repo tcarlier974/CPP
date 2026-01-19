@@ -8,9 +8,9 @@ class Cat : public Animal {
 		Cat();
 		Cat(const Cat &copy);
 		Cat &operator=(const Cat &src);
-		virtual ~Cat();
+		~Cat();
 
-		virtual void makeSound()const;
+		void makeSound()const;
 };
 
 #endif

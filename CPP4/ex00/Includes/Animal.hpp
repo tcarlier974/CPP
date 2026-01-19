@@ -9,10 +9,12 @@ class Animal {
 		str type;
 	public :
 		Animal();
+		Animal(const str& type);
 		Animal(const Animal &copy);
 		Animal &operator=(const Animal &src);
 		virtual ~Animal();
 		virtual void makeSound(void)const;
+		void setType(const str& type);
 		str getType()const;
 };
 

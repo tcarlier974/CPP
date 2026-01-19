@@ -11,11 +11,13 @@ class WrongAnimal
 
 	public:
 		WrongAnimal();
+		WrongAnimal(const str& type);
 		WrongAnimal(const WrongAnimal &copy);
 		virtual ~WrongAnimal();
 
-		virtual void makeSound(void)const;
+		void makeSound(void)const;
 		str getType()const;
+		void setType(const str& type);
 };
 
 #endif

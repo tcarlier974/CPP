@@ -7,15 +7,16 @@ typedef std::string str;
 class Brain {
 	private:
 		str ideas[100];
+		Brain( str );
 	public :
 		Brain();
 		Brain(const Brain &copy);
-		virtual ~Brain();
+		~Brain();
 		Brain &operator=(const Brain &src);
 
-		const str getIdea(size_t i)const;
-		void setIdea(size_t i, str idea);
-		const str *getIdeaAddress(size_t i)const;
+		// const str getIdea(size_t i)const;
+		// void setIdea(size_t i, str idea);
+		// const str *getIdeaAddress(size_t i)const;
 };
 
 #endif
