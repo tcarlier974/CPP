@@ -14,6 +14,13 @@ Animal::~Animal(){
 	std::cout << "Destructor called for Animal" << std::endl;
 }
 
+Animal &Animal::operator=(const Animal &src){
+	std::cout << "Animal Assignation operator called" << std::endl;
+	if (this != &src)
+		this->type = src.type;
+	return *this;
+}
+
 str Animal::getType()const{
 	return (this->type);
 }

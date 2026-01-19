@@ -10,8 +10,8 @@ int main()
 	// uncomment the following to show that the Animal constructor is
 	// now only usable by the inheritant classes
 
-	const Animal *animal = new Animal();
-	animal->makeSound();
+	// const Animal *animal = new Animal();
+	// animal->makeSound();
 
 	std::cout << "\033[34mConstructing\033[0m" << std::endl;
 	const Animal	*meta[10];

@@ -13,8 +13,15 @@ Dog::Dog(){
 }
 
 Dog::Dog(const Dog &copy){
-	*this = copy;
+	this->type = copy.type;
+	this->dogBrain = new Brain(*copy.dogBrain);
 	std::cout << "Copy constructor called for Dog" << std::endl;
+	if (this->dogBrain == NULL)
+	{
+		perror("Dog Brain allocation failed");
+		std::cerr << "Exiting the process now." << std::endl;
+		exit(1);
+	}
 }
 
 Dog::~Dog(){
@@ -33,14 +40,14 @@ Dog &Dog::operator=(const Dog &src)
 		return *this;
 
 	this->type = src.type;
-	this->dogBrain = new Brain();
+	delete this->dogBrain;
+	this->dogBrain = new Brain(*src.dogBrain);
 	if (this->dogBrain == NULL)
 	{
-		perror("Dog Brain alloDogion failed");
+		perror("Dog Brain allocation failed");
 		std::cerr << "Exiting the process now." << std::endl;
 		exit(1);
 	}
-	*this->dogBrain = *src.dogBrain;
 	return *this;
 }
 

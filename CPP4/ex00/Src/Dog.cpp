@@ -14,6 +14,13 @@ Dog::~Dog(){
 	std::cout << "Destructor called for Dog" << std::endl;
 }
 
+Dog &Dog::operator=(const Dog &src){
+	std::cout << "Dog Assignation operator called" << std::endl;
+	if (this != &src)
+		this->type = src.type;
+	return *this;
+}
+
 void Dog::makeSound()const{
 		std::cout << "\t*WOAF WOAF*\n";
 }

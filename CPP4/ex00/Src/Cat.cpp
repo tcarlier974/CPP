@@ -14,6 +14,13 @@ Cat::~Cat(){
 	std::cout << "Destructor called for Cat" << std::endl;
 }
 
+Cat &Cat::operator=(const Cat &src){
+	std::cout << "Cat Assignation operator called" << std::endl;
+	if (this != &src)
+		this->type = src.type;
+	return *this;
+}
+
 void Cat::makeSound()const{
 		std::cout << "\t*Meeeoow*\n";
 }

@@ -13,8 +13,15 @@ Cat::Cat() {
 }
 
 Cat::Cat(const Cat &copy){
-	*this = copy;
+	this->type = copy.type;
+	this->catBrain = new Brain(*copy.catBrain);
 	std::cout << "Copy constructor called for Cat" << std::endl;
+	if (this->catBrain == NULL)
+	{
+		perror("Cat Brain allocation failed");
+		std::cerr << "Exiting the process now." << std::endl;
+		exit(1);
+	}
 }
 
 Cat::~Cat(){
@@ -33,14 +40,14 @@ Cat &Cat::operator=(const Cat &src)
 		return *this;
 
 	this->type = src.type;
-	this->catBrain = new Brain();
+	delete this->catBrain;
+	this->catBrain = new Brain(*src.catBrain);
 	if (this->catBrain == NULL)
 	{
 		perror("Cat Brain allocation failed");
 		std::cerr << "Exiting the process now." << std::endl;
 		exit(1);
 	}
-	*this->catBrain = *src.catBrain;
 	return *this;
 }
 

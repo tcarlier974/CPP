@@ -10,6 +10,7 @@ class Animal {
 	public :
 		Animal();
 		Animal(const Animal &copy);
+		Animal &operator=(const Animal &src);
 		virtual ~Animal();
 		virtual void makeSound(void)const = 0;
 		str getType()const;
