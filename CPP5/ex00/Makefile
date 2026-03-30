@@ -1,7 +1,7 @@
 SRC = src/main.cpp \
 		src/Bureaucrat.cpp
 
-NAME = AAnimal
+NAME = Bureaucrat
 CC = c++
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
 OBJ = $(SRC:.cpp=.o)

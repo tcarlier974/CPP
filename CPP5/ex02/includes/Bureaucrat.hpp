@@ -6,18 +6,18 @@
 /*   By: tcarlier <tcarlier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 15:15:17 by tcarlier          #+#    #+#             */
-/*   Updated: 2026/03/30 16:01:53 by tcarlier         ###   ########.fr       */
+/*   Updated: 2026/03/30 16:18:18 by tcarlier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <stdexcept>
-#include "Form.hpp"
+#include "AForm.hpp"
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -32,7 +32,7 @@ class Bureaucrat
 
         Bureaucrat &operator=(Bureaucrat const & src);
         std::string const & getName() const;
-        void signForm(Form & src) const;
+        void signForm(AForm & src) const;
         int getGrade() const;
         void upGrade();
         void downGrade();

@@ -1,8 +1,12 @@
 SRC = src/main.cpp \
 		src/Bureaucrat.cpp \
-		src/Form.cpp
+		src/AForm.cpp \
+		src/ShrubberyCreationForm.cpp \
+		src/RobotomyRequestForm.cpp \
+		src/PresidentialPardonForm.cpp \
+		src/Intern.cpp
 
-NAME = Form
+NAME = Intern
 CC = c++
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
 OBJ = $(SRC:.cpp=.o)

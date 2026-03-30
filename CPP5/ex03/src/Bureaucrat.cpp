@@ -6,7 +6,7 @@
 /*   By: tcarlier <tcarlier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 15:35:18 by tcarlier          #+#    #+#             */
-/*   Updated: 2026/03/30 15:59:06 by tcarlier         ###   ########.fr       */
+/*   Updated: 2026/03/30 16:18:32 by tcarlier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ std::ostream & operator<<(std::ostream & o, Bureaucrat const & src)
     return o;
 }
 
-void Bureaucrat::signForm(Form & src) const
+void Bureaucrat::signForm(AForm & src) const
 {
     try
     {
