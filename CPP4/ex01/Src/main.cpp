@@ -5,96 +5,45 @@
 #include "../Includes/WrongCat.hpp"
 #include "../Includes/Brain.hpp"
 
-int main()
-{
-	std::cout << "\033[34mConstructing\033[0m" << std::endl;
-	const Animal	*meta[10];
-	for (int i = 0; i < 10; i++)
-	{
+int main() {
+	std::cout << "--- Test: création d'un tableau d'animaux ---" << std::endl;
+	const int n = 4;
+	Animal* animals[n];
+	for (int i = 0; i < n; ++i) {
 		if (i % 2)
-		{
-			meta[i] = new Cat();
-			if (meta[i] == NULL)
-			{
-				perror("Cat allocation failed");
-				std::cerr << "Exiting process now";
-				exit(1);
-			}
-		}
+			animals[i] = new Cat();
 		else
-		{
-			meta[i] = new Dog();
-			if (meta[i] == NULL)
-			{
-				perror("Dog allocation failed");
-				std::cerr << "Exiting process now";
-				exit(1);
-			}
-		}
-	}
-	std::cout << std::endl;
-
-	std::cout << "\033[34mTesting\033[0m" << std::endl;
-	for (int i = 0; i < 10; i++)
-	{
-		std::cout << std::endl;
-		std::cout << "Animal _type: " << meta[i]->getType() << std::endl;
-		meta[i]->makeSound();
-		std::cout << std::endl;
-	}
-	std::cout << std::endl;
-
-	std::cout << "\033[34mDeconstructing\033[0m" << std::endl;
-	for (int i = 0; i < 10; i++)
-		delete(meta[i]);
-
-//THIS PART IS FOR TESTING DEEP COPY ↓
-
-	std::cout << std::endl << std::endl;
-	std::cout << "#### showing that the copy constructor creates a deep copy ####" << std::endl;
-	std::cout << std::endl;
-
-	std::cout << "\033[34mConstructing\033[0m" << std::endl;
-	Dog *a = new Dog();
-	// Cat *a = new Cat();
-	if (a == NULL)
-	{
-		perror("Allocation failed");
-		std::cerr << "Exiting the process now." << std::endl;
-		exit(1);
+			animals[i] = new Dog();
 	}
 
-	a->setIdea(0, "I have to sniff it");
-	a->setIdea(1, "I have to pee on it");
-	a->setIdea(2, "I have to sniff it again");
-	a->setIdea(101, "some shit");
-
-	Dog *b = new Dog(*a);
-	// Cat *b = new Cat(*a);
-	if (b == NULL)
-	{
-		perror("Allocation failed");
-		std::cerr << "Exiting the process now." << std::endl;
-		exit(1);
+	std::cout << std::endl << "--- Test: makeSound() et getType() ---" << std::endl;
+	for (int i = 0; i < n; ++i) {
+		std::cout << animals[i]->getType() << " : ";
+		animals[i]->makeSound();
 	}
-	std::cout << std::endl;
 
-	std::cout << "\033[34mTesting a\033[0m" << std::endl;
-	std::cout << "The " << a->getType() << " a has the following ideas: " << std::endl;
-	a->getIdeas();
-	std::cout << std::endl;
+	std::cout << std::endl << "--- Destruction des animaux ---" << std::endl;
+	for (int i = 0; i < n; ++i) {
+		delete animals[i];
+	}
 
-	std::cout << "\033[34mDeconstructing a\033[0m" << std::endl;
-	delete(a);
-	std::cout << std::endl;
+	std::cout << std::endl << "--- Test: copie et suppression pour vérifier la copie profonde ---" << std::endl;
+	Cat* cat1 = new Cat();
+	Cat* cat2 = new Cat(*cat1);
+	std::cout << "Suppression de cat1..." << std::endl;
+	delete cat1;
+	std::cout << "cat2 après suppression de cat1 : ";
+	cat2->makeSound();
+	delete cat2;
 
-	std::cout << "\033[34mTesting b\033[0m" << std::endl;
-	std::cout << "The " << b->getType() << " b has the following ideas: " << std::endl;
-	b->getIdeas();
-	std::cout << std::endl;
+	std::cout << std::endl << "--- Test: opérateur= et constructeur de copie pour Dog ---" << std::endl;
+	Dog dog1;
+	Dog dog2 = dog1;
+	dog2.makeSound();
+	Dog dog3;
+	dog3 = dog1;
+	dog3.makeSound();
 
-	std::cout << "\033[34mDeconstructing b\033[0m" << std::endl;
-	delete(b);
-
-	return (0);
+	std::cout << std::endl << "--- Fin des tests ---" << std::endl;
+	return 0;
 }

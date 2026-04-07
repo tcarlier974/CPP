@@ -1,63 +1,38 @@
 #include "../Includes/Dog.hpp"
 
-Dog::Dog(){
-	this->type = "Dog";
-	this->dogBrain = new Brain();
-	std::cout << "Default constructor called for Dog" << std::endl;
-	if (this->dogBrain == NULL)
-	{
-		perror("Dog Brain alloDogion failed");
-		std::cerr << "Exiting the process now." << std::endl;
-		exit(1);
-	}
+Dog::Dog() : Animal("Dog"), brain(new Brain) {
+	std::cout << "Here comes the Dog !\n";
 }
 
-Dog::Dog(const Dog &copy){
-	this->type = copy.type;
-	this->dogBrain = new Brain(*copy.dogBrain);
-	std::cout << "Copy constructor called for Dog" << std::endl;
-	if (this->dogBrain == NULL)
-	{
-		perror("Dog Brain allocation failed");
-		std::cerr << "Exiting the process now." << std::endl;
-		exit(1);
-	}
+Dog::Dog(const Dog &other) : Animal(other), brain(new Brain(*other.brain)) {
+	std::cout << "Here comes the Dog !\n";
 }
 
 Dog::~Dog(){
-	delete this->dogBrain;
-	std::cout << "Destructor called for Dog" << std::endl;
+	std::cout << "The Dog is gone...\n";
+	delete brain;
 }
 
 void Dog::makeSound()const{
 		std::cout << "\t*WOAF WOAF*\n";
 }
 
-Dog &Dog::operator=(const Dog &src)
-{
-	std::cout << "Dog Assignation operator called" << std::endl;
-	if (this == &src)
-		return *this;
-
-	this->type = src.type;
-	delete this->dogBrain;
-	this->dogBrain = new Brain(*src.dogBrain);
-	if (this->dogBrain == NULL)
-	{
-		perror("Dog Brain allocation failed");
-		std::cerr << "Exiting the process now." << std::endl;
-		exit(1);
+Dog &Dog::operator=(const Dog &other) {
+	if (this != &other) {
+		Animal::operator=(other);
+		delete brain;
+		brain = new Brain(*other.brain);
 	}
-	return *this;
+	return (*this);
 }
 
-void	Dog::getIdeas(void)const
-{
-	for (int i = 0; i < 3; i++)// change the 3 to 100 to show all ideas
-		std::cout << "\tIdea " << i << " of the Cat is: \"" << this->dogBrain->getIdea(i) << "\" at the address " << this->dogBrain->getIdeaAddress(i) << std::endl;
-}
+// void	Dog::getIdeas(void)const
+// {
+// 	for (int i = 0; i < 3; i++)// change the 3 to 100 to show all ideas
+// 		std::cout << "\tIdea " << i << " of the Cat is: \"" << this->brain->getIdea(i) << "\" at the address " << this->brain->getIdeaAddress(i) << std::endl;
+// }
 
-void	Dog::setIdea(size_t i, std::string idea)
-{
-		this->dogBrain->setIdea(i, idea);
-}
+// void	Dog::setIdea(size_t i, std::string idea)
+// {
+// 		this->brain->setIdea(i, idea);
+// }

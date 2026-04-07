@@ -5,6 +5,10 @@ Animal::Animal(){
 	std::cout << "Default constructor called for Animal" << std::endl;
 }
 
+Animal::Animal(const str& type) : type(type){
+	std::cout << "Here comes the... The Animal of type " << type << " !\n";
+}
+
 Animal::Animal(const Animal &copy){
 	this->type = copy.type;
 	std::cout << "Copy constructor called for Animal" << std::endl;
@@ -27,4 +31,8 @@ void Animal::makeSound()const{
 
 str Animal::getType()const{
 	return (this->type);
+}
+
+void Animal::setType(const str& type) {
+	this->type = type;
 }
