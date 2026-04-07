@@ -1,106 +1,49 @@
-#include "../Includes/Animal.hpp"
+#include "../Includes/AAnimal.hpp"
 #include "../Includes/Cat.hpp"
 #include "../Includes/Dog.hpp"
 #include "../Includes/WrongAnimal.hpp"
 #include "../Includes/WrongCat.hpp"
 #include "../Includes/Brain.hpp"
 
-int main()
-{
-	// uncomment the following to show that the Animal constructor is
-	// now only usable by the inheritant classes
+int main() {
+	// AAnimal test;  // Ne compile pas car AAnimal est abstraite.
 
-	// const Animal *animal = new Animal();
-	// animal->makeSound();
-
-	std::cout << "\033[34mConstructing\033[0m" << std::endl;
-	const Animal	*meta[10];
-	for (int i = 0; i < 10; i++)
-	{
+	std::cout << "=== Tableau d'animaux ===" << std::endl;
+	const int n = 4;
+	AAnimal* animals[n];
+	for (int i = 0; i < n; i++) {
 		if (i % 2)
-		{
-			meta[i] = new Cat();
-			if (meta[i] == NULL)
-			{
-				perror("Cat allocation failed");
-				std::cerr << "Exiting process now";
-				exit(1);
-			}
-		}
+			animals[i] = new Cat();
 		else
-		{
-			meta[i] = new Dog();
-			if (meta[i] == NULL)
-			{
-				perror("Dog allocation failed");
-				std::cerr << "Exiting process now";
-				exit(1);
-			}
-		}
-	}
-	std::cout << std::endl;
-
-	std::cout << "\033[34mTesting\033[0m" << std::endl;
-	for (int i = 0; i < 10; i++)
-	{
-		std::cout << std::endl;
-		std::cout << "Animal _type: " << meta[i]->getType() << std::endl;
-		meta[i]->makeSound();
-		std::cout << std::endl;
-	}
-	std::cout << std::endl;
-
-	std::cout << "\033[34mDeconstructing\033[0m" << std::endl;
-	for (int i = 0; i < 10; i++)
-		delete(meta[i]);
-
-//THIS PART IS FOR TESTING DEEP COPY ↓
-
-	std::cout << std::endl << std::endl;
-	std::cout << "#### showing that the copy constructor creates a deep copy ####" << std::endl;
-	std::cout << std::endl;
-
-	std::cout << "\033[34mConstructing\033[0m" << std::endl;
-	Dog *a = new Dog();
-	// Cat *a = new Cat();
-	if (a == NULL)
-	{
-		perror("Allocation failed");
-		std::cerr << "Exiting the process now." << std::endl;
-		exit(1);
+			animals[i] = new Dog();
 	}
 
-	a->setIdea(0, "I have to sniff it");
-	a->setIdea(1, "I have to pee on it");
-	a->setIdea(2, "I have to sniff it again");
-	a->setIdea(101, "some shit");
-
-	Dog *b = new Dog(*a);
-	// Cat *b = new Cat(*a);
-	if (b == NULL)
-	{
-		perror("Allocation failed");
-		std::cerr << "Exiting the process now." << std::endl;
-		exit(1);
+	std::cout << "\n=== Sons ===" << std::endl;
+	for (int i = 0; i < n; i++) {
+		std::cout << animals[i]->getType() << ": ";
+		animals[i]->makeSound();
 	}
-	std::cout << std::endl;
 
-	std::cout << "\033[34mTesting a\033[0m" << std::endl;
-	std::cout << "The " << a->getType() << " a has the following ideas: " << std::endl;
-	a->getIdeas();
-	std::cout << std::endl;
+	std::cout << "\n=== Destruction ===" << std::endl;
+	for (int i = 0; i < n; i++)
+		delete animals[i];
 
-	std::cout << "\033[34mDeconstructing a\033[0m" << std::endl;
-	delete(a);
-	std::cout << std::endl;
+	std::cout << "\n=== Deep copy Cat ===" << std::endl;
+	Cat* c1 = new Cat();
+	Cat* c2 = new Cat(*c1);
+	delete c1;
+	std::cout << "c2 apres delete c1: ";
+	c2->makeSound();
+	delete c2;
 
-	std::cout << "\033[34mTesting b\033[0m" << std::endl;
-	std::cout << "The " << b->getType() << " b has the following ideas: " << std::endl;
-	b->getIdeas();
-	std::cout << std::endl;
+	std::cout << "\n=== Copy Dog ===" << std::endl;
+	Dog d1;
+	Dog d2(d1);
+	d2.makeSound();
+	Dog d3;
+	d3 = d1;
+	d3.makeSound();
 
-	std::cout << "\033[34mDeconstructing b\033[0m" << std::endl;
-	delete(b);
-
-	return (0);
+	std::cout << "\n=== Fin ===" << std::endl;
+	return 0;
 }

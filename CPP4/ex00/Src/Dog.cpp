@@ -1,12 +1,10 @@
 #include "../Includes/Dog.hpp"
 
-Dog::Dog(){
-	this->type = "Dog";
+Dog::Dog() : Animal("Dog") {
 	std::cout << "Default constructor called for Dog" << std::endl;
 }
 
-Dog::Dog(const Dog &copy){
-	this->type = copy.type;
+Dog::Dog(const Dog &copy) : Animal(copy) {
 	std::cout << "Copy constructor called for Dog" << std::endl;
 }
 
