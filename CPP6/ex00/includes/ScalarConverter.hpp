@@ -6,7 +6,7 @@
 /*   By: tcarlier <tcarlier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 20:06:54 by tcarlier          #+#    #+#             */
-/*   Updated: 2026/04/06 15:24:59 by tcarlier         ###   ########.fr       */
+/*   Updated: 2026/04/07 18:13:19 by tcarlier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 # include <iomanip>
 # include <limits>
 # include <cstdlib>
-# include <cmath>	// for isnan, isinf
-# include <cerrno>	// for errno, ERANGE
-# include <climits>	// for INT_MAX, INT_MIN
-# include <cctype>	// for isprint, isdigit
+# include <cmath>
+# include <cerrno>
+# include <climits>
+# include <cctype>
 
 class ScalarConverter
 {

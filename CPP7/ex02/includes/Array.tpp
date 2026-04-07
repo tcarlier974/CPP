@@ -6,7 +6,7 @@
 /*   By: tcarlier <tcarlier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 16:36:47 by tcarlier          #+#    #+#             */
-/*   Updated: 2026/04/07 17:01:23 by tcarlier         ###   ########.fr       */
+/*   Updated: 2026/04/07 18:12:37 by tcarlier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ template< typename T >
 Array<T>::Array(unsigned int n) : array(new T[n]()), _size(n) {}
 
 template< typename T >
-Array<T>::Array(const Array &copy) : array(new T[copy._size]()), _size(copy._size)
+Array<T>::Array( Array const &copy) : array(new T[copy._size]()), _size(copy._size)
 {
 	size_t i = 0;
 
@@ -37,7 +37,7 @@ Array<T>::~Array()
 }
 
 template< typename T >
-Array<T> &Array<T>::operator=(const Array &a)
+Array<T> &Array<T>::operator=( Array const &a)
 {
 	if (this != a)
 	{

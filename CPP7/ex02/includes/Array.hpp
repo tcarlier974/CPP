@@ -6,7 +6,7 @@
 /*   By: tcarlier <tcarlier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 15:43:19 by tcarlier          #+#    #+#             */
-/*   Updated: 2026/04/07 17:04:38 by tcarlier         ###   ########.fr       */
+/*   Updated: 2026/04/07 18:11:34 by tcarlier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ class Array
 	public :
 		Array();
 		Array( unsigned int n );
-		Array( const Array &copy );
+		Array( Array const &copy );
 		~Array();
-		Array &operator=( const Array &a );
+		Array &operator=( Array const &a );
 		T &operator[]( unsigned int n );
 		const T &operator[]( unsigned int n ) const;
 
