@@ -1,27 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   BitcoinExchange.tpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcarlier <tcarlier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/06 19:14:55 by tcarlier          #+#    #+#             */
-/*   Updated: 2026/04/07 19:03:14 by tcarlier         ###   ########.fr       */
+/*   Created: 2026/04/08 18:26:13 by tcarlier          #+#    #+#             */
+/*   Updated: 2026/04/08 18:27:41 by tcarlier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Base.hpp"
+#include "BitcoinExchange.hpp"
 
-int main()
+BitcoinExchange::BitcoinExchange()
 {
-	srand(time(NULL));
-	Base* base = generate();
-	identify(base);
-	identify(*base);
-	delete base;
-	Base* base2 = generate();
-	identify(base2);
-	identify(*base2);
-	delete base2;
-	return 0;
 }
