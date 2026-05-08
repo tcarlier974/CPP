@@ -59,17 +59,17 @@ void identify(Base& p)
 		(void)dynamic_cast<A&>(p);
 		std::cout << "Identified class: A" << std::endl;
 	}
-	catch (std::bad_cast&) {}
+	catch (...) {}
 	try
 	{
 		(void)dynamic_cast<B&>(p);
 		std::cout << "Identified class: B" << std::endl;
 	}
-	catch (std::bad_cast&) {}
+	catch (...) {}
 	try
 	{
 		(void)dynamic_cast<C&>(p);
 		std::cout << "Identified class: C" << std::endl;
 	}
-	catch (std::bad_cast&) {}
+	catch (...) {}
 }
